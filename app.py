@@ -9,6 +9,9 @@ app.secret_key = os.urandom(24)  # For session management
 CORS(app, supports_credentials=True)  # Enable Cross-Origin Resource Sharing with credentials
 MAX_TOKENS_LIMIT = 4192 # Maximum tokens allowed
 
+# Configure FLASK_DEBUG from environment variable
+app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
+
 # Load the CosmoXL model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained("allenai/cosmo-xl")
 model = AutoModelForSeq2SeqLM.from_pretrained("allenai/cosmo-xl")
