@@ -4,6 +4,9 @@ runtime_config:
   operating_system: ubuntu22
   manual_scaling:
   instances: 1
+handlers:
+  - url: /.*
+    script: auto
 resources:
   cpu: 1
   memory_gb: 0.5
