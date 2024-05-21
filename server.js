@@ -32,7 +32,7 @@ app.post("/chat", async (req, res) => {
     if (!userConversations[userId]) {
       userConversations[userId] = {
         messages: [],
-        rateLimit: 10 // Set an initial rate limit (example: 10 messages)
+        rateLimit: 20 // Set an initial rate limit (example: 20 messages)
       };
 
       // Add the role message as the initial system message
