@@ -1,8 +1,0 @@
-transformers
-torch
-flask_cors
-protobuf
-sentencepiece
-Flask
-gunicorn
-Werkzeug
