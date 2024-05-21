@@ -52,13 +52,14 @@ app.post("/chat", async (req, res) => {
     }
 
     // Call the OpenAI API to generate a response
+    console.log("Requesting response from OpenAI API...");
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: messages.concat({ role: "user", content: message }),
     });
 
     // Extract the AI's response from the API response
-    const aiResponse = response.data.choices[0].message.content;
+    const aiResponse = response.choices[0].message.content;
 
     // Update the conversation history and rate limit
     userConversations[userId].messages.push({ role: "user", content: message });
