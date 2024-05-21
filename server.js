@@ -2,6 +2,7 @@ const express = require("express");
 const bp = require("body-parser");
 const { v4: uuidv4 } = require('uuid');
 const { OpenAI } = require("openai");
+const cors = require("cors"); // Import the cors middleware
 
 // Load environment variables from .env file
 require("dotenv").config();
@@ -17,6 +18,9 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // Object to store conversation history and rate limits for each user
 const userConversations = {};
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Define the endpoint to handle incoming requests
 app.post("/chat", async (req, res) => {
